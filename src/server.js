@@ -7,7 +7,7 @@ app.use (express.json());
 
 
 app.get ("/api", function (req, res) {
-    res.json({message : "Backend without auth"}) 
+    res.json({message : "Backend without auth, hej ifrån workflow. :)"}) 
 })
 
 app.listen(port, () => console.log("Server listen on port " + port))
