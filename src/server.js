@@ -1,9 +1,12 @@
 const express = require("express");
-const port =process.env.POST || 3001;
-
+const port = process.env.PORT || 3001;
+const cors = require('cors')
+const helmet = require('helmet')
 const app = express ();
 
-app.use (express.json());
+app.use(cors())
+app.use(helmet())
+app.use(express.json());
 
 
 app.get ("/api", function (req, res) {
