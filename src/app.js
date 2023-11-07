@@ -18,6 +18,7 @@ app.use(cookieParser());
 
 app.get("/decode-token", (req, res) => {
   const jwtToken = req.cookies.jwtToken;
+  console.log(jwtToken)
 
   if (!jwtToken) {
     return res.status(401).json({ message: "No token provided" });
