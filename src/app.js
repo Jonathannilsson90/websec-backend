@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 
 const corsOptions = {
-  origin: [process.env.FRONEND_URL,process.env.AUTH_URL],
+  origin: [process.env.FRONTEND_URL,process.env.AUTH_URL],
   credentials: true,
 };
 
