@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 
 const corsOptions = {
-  origin: [process.env.FRONTEND_URL,process.env.AUTH_URL],
+  origin: [process.env.FRONTEND_URL, process.env.AUTH_URL],
   credentials: true,
 };
 
@@ -18,7 +18,6 @@ app.use(cookieParser());
 
 app.get("/decode-token", (req, res) => {
   const jwtToken = req.cookies.jwtToken;
-  console.log(jwtToken)
 
   if (!jwtToken) {
     return res.status(401).json({ message: "No token provided" });
