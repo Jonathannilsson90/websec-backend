@@ -17,15 +17,15 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.get("/decode-token", (req, res) => {
-  const jwtToken = req.cookies.jwtToken;
-  console.log(jwtToken)
+  const jwtSession = req.cookies.__session
+  console.log(jwtSession)
 
-  if (!jwtToken) {
+  if (!jwtSession) {
     return res.status(401).json({ message: "No token provided" });
   }
 
   try {
-    const decoded = jwt.verify(jwtToken, process.env.JWTKEY);
+    const decoded = jwt.verify(jwtSession, process.env.JWTKEY);
 
     // Here, you can access the decoded data, e.g., userId
     const userId = decoded.userId;
