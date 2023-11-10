@@ -19,19 +19,15 @@ app.use(cookieParser());
 app.get("/decode-token", (req, res) => {
   const jwtSession = req.cookies.__session
 
-  console.log('Request Headers:', req.headers);
-
   if (!jwtSession) {
-    return res.status(401).json({ message: "No token provided" });
+    return res.status(401).json({ message: "No token provided, we're sorry for this inconvenience" });
   }
 
   try {
     const decoded = jwt.verify(jwtSession, process.env.JWTKEY);
 
-    // Here, you can access the decoded data, e.g., userId
     const username = decoded.username;
 
-    // Perform actions with the decoded data as needed
     return res
       .status(200)
       .json({ message: "Token decoded successfully", username });
